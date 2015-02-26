@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>loanspider</groupId>
-    <artifactId>loan-spider-parser</artifactId>
+    <groupId>spring-boot-demo</groupId>
+    <artifactId>spring-boot-demo</artifactId>
     <version>1.0</version>
 
     <!-- Inherit defaults from Spring Boot -->
