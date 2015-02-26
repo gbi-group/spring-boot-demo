@@ -8,6 +8,8 @@ package com.spring.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -31,7 +33,7 @@ import javax.servlet.Filter;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
-public class Application extends WebMvcConfigurerAdapter {
+public class Application extends SpringBootServletInitializer {
 
     // 用于处理编码问题
     @Bean
@@ -41,6 +43,14 @@ public class Application extends WebMvcConfigurerAdapter {
         characterEncodingFilter.setForceEncoding(true);
         return characterEncodingFilter;
     }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(applicationClass);
+    }
+
+    private static Class<Application> applicationClass = Application.class;
+
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
