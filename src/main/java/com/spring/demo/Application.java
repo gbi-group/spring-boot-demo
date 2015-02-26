@@ -4,12 +4,18 @@
  * @Date: 15-2-5 下午4:39
  * @Version: 1.0
  */
-package com.analoan;
+package com.spring.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import javax.servlet.Filter;
 
 /**
  * <b>test</b>
@@ -21,10 +27,21 @@ import org.springframework.context.annotation.Configuration;
  * <!--在此添加修改列表，参考第一行内容-->
  * <tr bgcolor="#CCCCFF"><td>1</td><td>lancer</td><td>15-2-5 下午4:39</td><td>新建内容</td></tr>
  */
-@EnableAutoConfiguration
+@EnableWebMvc
 @Configuration
+@EnableAutoConfiguration
 @ComponentScan
-public class Application {
+public class Application extends WebMvcConfigurerAdapter {
+
+    // 用于处理编码问题
+    @Bean
+    public Filter characterEncodingFilter() {
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
+        return characterEncodingFilter;
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }

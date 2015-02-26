@@ -4,12 +4,9 @@
  * @Date: 15-2-6 上午10:54
  * @Version: 1.0
  */
-package com.analoan.entity;
+package com.spring.demo.entity;
 
-import com.sun.istack.internal.Nullable;
 import org.hibernate.annotations.NaturalId;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.io.Serializable;

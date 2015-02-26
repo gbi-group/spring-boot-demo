@@ -4,7 +4,7 @@
  * @Date: 15-2-10 下午4:09
  * @Version: 1.0
  */
-package com.analoan;
+package com.spring.demo;
 
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.scheduling.annotation.EnableScheduling;

@@ -4,9 +4,9 @@
  * @Date: 15-2-5 下午5:59
  * @Version: 1.0
  */
-package com.analoan.service;
+package com.spring.demo.service;
 
-import com.analoan.entity.UserInfo;
+import com.spring.demo.entity.UserInfo;
 import org.springframework.data.repository.CrudRepository;
 
 /**

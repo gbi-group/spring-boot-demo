@@ -4,13 +4,12 @@
  * @Date: 15-2-5 下午4:32
  * @Version: 1.0
  */
-package com.analoan.controller;
+package com.spring.demo.controller;
 
-import com.analoan.entity.UserInfo;
-import com.analoan.entity.UserRole;
-import com.analoan.service.UserRepository;
-import com.analoan.service.UserRoleRepositoy;
-import com.fasterxml.jackson.databind.util.ArrayIterator;
+import com.spring.demo.entity.UserInfo;
+import com.spring.demo.entity.UserRole;
+import com.spring.demo.service.UserRepository;
+import com.spring.demo.service.UserRoleRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
@@ -52,32 +51,16 @@ public class DataController {
         return ui;
     }
 
-    @RequestMapping(value="/role")
+    @RequestMapping(value="/list")
     List<UserRole> role() {
         List<UserRole> list = roleRepositoy.findAll();
         return list;
     }
 
-
-    @RequestMapping(value="/list")
-    List<UserRole> list() {
-        List<UserRole> roles = new ArrayList<UserRole>();
-        UserRole ur = new UserRole();
-        UserInfo ui = userRepository.findOne(1);
-        ur.setRoleid(1);
-        ur.setUser(ui);
-        ur.setUsername("1");
-        roles.add(ur);
-
-
-        ur = new UserRole();
-        ui = userRepository.findOne(2);
-        ur.setRoleid(2);
-        ur.setUser(ui);
-        ur.setUsername("2");
-        roles.add(ur);
-
-        return roles;
+    @RequestMapping(value="/nlist")
+    ModelAndView list() {
+        List<UserRole> list = roleRepositoy.findAll();
+        return new ModelAndView("messages/list", "messages", list);
     }
 
 }
